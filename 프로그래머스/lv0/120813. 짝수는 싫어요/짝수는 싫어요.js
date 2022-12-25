@@ -1,14 +1,13 @@
 function solution(n) {
     var answer = [];
-    var arr=[]
+    let cnt = 1;
     
-    for (var i = 0 ; i <n ; i ++){
-        arr[i] =arr.push(i)
+    while(cnt <= n){
+        if(cnt %2===1){
+            answer.push(cnt);
         }
-    for ( var i = 0; i< n; i ++)
-        if(arr[i]%2 !== 0 )
-            {
-                answer.push(i +1)
-            }
+        cnt ++;
+    }
+    
     return answer;
 }
