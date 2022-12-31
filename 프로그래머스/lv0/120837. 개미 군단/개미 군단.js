@@ -1,29 +1,14 @@
 function solution(hp) {
-    var answer = 0;
-    let at5=5;
-    let at3=3;
-    let at1=1;
-    let cnt=0;
+    let cnt = 0;
+    let arr =[ 5, 3, 1 ];
     
-    
-   while (true){
-       if(hp===0){
-           break;
-       }
-       
-        else if(hp >= at5){
-           hp-=at5
-           cnt++
-       }else if( hp >= at3){
-           hp-=at3
-           cnt++
-       }else if(hp >= at1){
-           hp-=at1
-           cnt++
-       } 
-       
-      
+    for(let i = 0 ; i <arr.length ; i ++ ){
+        let item = arr[i];
         
-   }
-    return cnt;
+        if(hp>= item){
+            cnt += Math.floor(hp/item); // cnt 4  hp20 itme5
+            hp -= Math.floor(hp/item)*item// 
+        }
+    }
+    return cnt ;
 }
