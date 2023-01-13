@@ -5,5 +5,6 @@ function solution(phone_number) {
     //     i > str.length-5 ? answer.push(str[i]) : answer.push('*')          
     // }    
     // return answer.join('');
-    return phone_number = [...phone_number].fill('*',0,phone_number.length-4).join('')
+    // return phone_number = [...phone_number].fill('*',0,phone_number.length-4).join('')
+    return phone_number.replace(/\d(?=\d{4})/g, "*");
 }
