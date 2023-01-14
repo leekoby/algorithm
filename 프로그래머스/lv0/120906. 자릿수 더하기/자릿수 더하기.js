@@ -10,8 +10,10 @@ function solution(n) {
     
     
     
-    return [...String(n)].map(Number).reduce((a,b)=> a+b);
-    // return Array.from(String(n)).reduce((a,b) => (+a) + (+b));
+    //return [...String(n)].map(Number).reduce((a,b)=> a+b);
+    let answer = Array.from(String(n)).reduce((a,b) => (+a) + (+b), 0)
+    console.log(answer)
+    return answer;
     // return [...String(n)].reduce((a,b) => +a + +b);
     
     
