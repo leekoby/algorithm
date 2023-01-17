@@ -6,7 +6,8 @@ function solution(id_pw, db) {
     for(let i = 0; i < db.length; i++){
       if(id !== db[i][0] && pw!=db[i][1]) answer = 'fail'
       if(id === db[i][0] && pw!=db[i][1]) answer = 'wrong pw'
-      if(id === db[i][0] && pw===db[i][1]) answer = 'login'
+      if(id === db[i][0] && pw===db[i][1]) {answer = 'login' 
+                                            break;}
     }
 
     return answer;
