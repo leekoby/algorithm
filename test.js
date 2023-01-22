@@ -1,13 +1,27 @@
 const fs = require("fs");
+const { arrayBuffer } = require("stream/consumers");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath)
     .toString()
-    .split(' ')
+    .trim()
+    .split('\n')
     .map(el => Number(el));
 
-let chess = [1, 1, 2, 2, 2, 8];
+let answer = input;
+let sum = answer.reduce((a, b) => a + b, 0)
+
+endOfCircuit: for (let i = 0; i < 8; i++) {
+    for (let j = i + 1; j < 9; j++) {
+        if ((sum - answer[i] - answer[j] === 100)) {
+            answer.splice(j, 1)
+            answer.splice(i, 1)
+            break endOfCircuit;
+        }
+    }
+}
+console.log(answer.sort((a, b) => a - b).join('\n'));
 
 
-let answer = chess.map((el, idx) => el - input[idx]);
-// let result = origin.map((el, idx) => el - input[idx]);
-console.log(answer.join(' '))
+
+
+
