@@ -1,15 +1,10 @@
-function solution(s) {
-if(s.length === 1 || s[0] === ")") return false;
-
-let p = 0;
-
-for(let i = 0 ; i < s.length ; i++) {
-    if(s[i] === "(") {
-      p++;
-    } else {
-     if(p < 1) return false;
-    p--;
-}
-}
-return p > 0 ? false : true;
+function solution(s){
+    let cum = 0
+    for (let paren of s) {
+        cum += paren === '('? 1: -1
+        if(cum < 0) {
+            return false
+        }
+    }
+    return cum === 0? true: false;
 }
