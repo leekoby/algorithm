@@ -15,25 +15,25 @@
 
 //===================================================================
 
-// const fs = require("fs");
-// const { arrayBuffer } = require("stream/consumers");
-// const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-// let input = fs.readFileSync(filePath)
-//     .toString()
-//     .trim()
-//     .split(' ')
-//     .map(el => el);
-// console.log(input)
+const fs = require("fs");
+const { arrayBuffer } = require("stream/consumers");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath)
+    .toString()
+    .trim()
+    .split('\n')
+let data = input[1].trim().split(' ')
+    .map(el => el);
+console.log(data)
 
-//===================================================================
+let answer = 0, cnt = 0;
 
+for (let x of data) {
+    if (+x === 1) {
+        cnt++
+        answer += cnt;
+    }
+    else cnt = 0;
+}
 
-let answer;
-
-answer = Input.filter((v, i) => {
-    if (Input.indexOf(v) === i) { return true }
-})
-
-
-
-console.log(answer.join(' '));
+console.log(answer)
