@@ -1,12 +1,7 @@
 const fs = require('fs')
 const inputData = fs.readFileSync('/dev/stdin')
-const originalData = inputData
+const input = inputData
 
-if(originalData % 4 == 0 && originalData % 100 != 0){
-    console.log(1)
-}
-else if(originalData % 4 == 0 && originalData % 400 == 0){
-    console.log(1)
-}
-else
-    console.log(0)
+
+
+console.log(input % 4 === 0 && (input % 100 !== 0 || input % 400 === 0) ? 1 : 0);
