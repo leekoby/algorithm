@@ -1,15 +1,14 @@
 function solution(n) {
-    let arr = []
-    let sum = 0;
-    
-    arr[0]= 0
-    arr[1]= 1
-    arr[2] = 1
-    for ( let i = 3 ; i<= n ; i++){
-        sum = (arr[i-1]+arr[i-2])%1234567
-        arr.push(sum)
-       
-        sum = arr[i]
-    }
-    return sum
+  const fibonacci = Array.from({ length: n }, (_, i) => i + 1)
+    .reduce((acc, cur) => {
+      if (cur <= 2) {
+        acc.push(1);
+      } else {
+        const sum = (acc[cur - 2] + acc[cur - 3]) % 1234567;
+        acc.push(sum);
+      }
+      return acc;
+    }, []);
+
+  return fibonacci[n - 1];
 }
