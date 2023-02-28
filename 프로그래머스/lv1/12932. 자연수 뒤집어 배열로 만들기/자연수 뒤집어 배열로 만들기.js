@@ -1,5 +1,3 @@
 function solution(n) {
-    let str = String(n)
-    let arr = Array.from(str)
-    return arr.map((a)=> Number(a)).reverse()
+   return n.toString().split('').reverse().map(e=> Number(e))
 }
