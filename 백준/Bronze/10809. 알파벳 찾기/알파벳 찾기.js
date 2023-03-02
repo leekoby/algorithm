@@ -1,9 +1,11 @@
-const input = require("fs").readFileSync("/dev/stdin").toString();
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let n = fs.readFileSync(filePath).toString().trim()
 
-const result = [];
 
+let result = [];
 for (let i = 97; i <= 122; i++) {
-  result.push(input.indexOf(String.fromCharCode(i)));
+  result.push(n.indexOf(String.fromCharCode(i)))
 }
 
-console.log(result.join(" "));
+console.log(result.join(' '))
