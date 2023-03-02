@@ -6,9 +6,14 @@ let answer = 0;
 function getClapNum(num) {
   let cnt = 0;
   let temp = num;
-  while (temp) {
-    if (!(temp % 3) | !(temp % 6) | !(temp % 9)) cnt++
+  let rest = temp % 10;
+  while (rest >= 1) {
+    if (rest < 10 && (rest % 3 === 0 || rest % 6 === 0 || rest % 9 === 0)) {
+      cnt++
+
+    }
     temp = temp / 10
+    rest = temp % 10
   }
   return cnt
 }
