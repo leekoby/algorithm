@@ -1,7 +1,5 @@
-const fs = require('fs');
-const inputData = fs.readFileSync(0, 'utf8').toString().split(' ');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let [a, b] = fs.readFileSync(filePath).toString().trim().split(' ').map(Number)
 
-const A = parseInt(inputData[0]);
-const B = parseInt(inputData[1]);
-
-console.log(A+B);
+console.log(a + b);

@@ -1,24 +1,53 @@
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+class Queue {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+  enqueue(newValue) {
+    const newNode = new Node(newValue)
+    if (this.head === null) {
+      this.head = this.tail = newNode
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+  }
+
+  dequeue() {
+    const value = this.head.value;
+    this.head = this.head.next;
+    return value;
+  }
+
+  peek() {
+    return this.head.value
+  }
+}
+
 function solution(priorities, location) {
-    let answer = 0;
-    let pos_map = []
-    let max_value = Math.max(...priorities);
-
-    //1. position map 만들기
-    for(let i = 0; i < priorities.length; i++){
-        pos_map.push(i);
+  const queue = new Queue();
+  for (let i = 0; i < priorities.length; i++) {
+    queue.enqueue([priorities[i], i])
+  }
+  priorities.sort((a, b) => b - a);
+  let count = 0;
+  while (1) {
+    const currentValue = queue.peek();
+    if (currentValue[0] < priorities[count]) {
+      queue.enqueue(queue.dequeue())
+    } else {
+      const value = queue.dequeue();
+      count += 1;
+      if (location === value[1]) {
+        return count
+      }
     }
-
-    //2. 알고리즘 뽑기
-    while(priorities.length != 0){
-        if(priorities[0] < max_value){
-            priorities.push(priorities.shift());
-            pos_map.push(pos_map.shift());
-        }else {// priorities[0] >= max_value
-            answer+=1;
-            priorities.shift();
-            if(pos_map.shift() == location)
-                return answer;
-            max_value = Math.max(...priorities);
-        }
-    }
+  }
+  return count;
 }
