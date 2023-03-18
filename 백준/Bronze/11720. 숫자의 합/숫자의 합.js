@@ -1,9 +1,9 @@
 const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-let [A, B] = fs.readFileSync(filePath).toString().trim().split('\n')
-
-B = B.split('').reduce((a, b) => +a + +b, 0)
-
-console.log(B)
+let input = fs.readFileSync(filePath).toString().split('\n')
 
 
+let testCase = input[0];
+let data = input[1].split('').reduce((a, c) => a + Number(c), 0)
+
+console.log(data)
