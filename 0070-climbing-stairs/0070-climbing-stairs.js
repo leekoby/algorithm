@@ -1,14 +1,21 @@
 /**
- * @param {number} n
+ * @param {number} 
  * @return {number}
  */
-var climbStairs = function(n) {
-        
-  const result = [0, 1, 2];
+const climbStairs = function(n) {
+  if (n <= 2) {
+    return n;
+  }
+
+  const d = new Array(n + 1).fill(0);
+  d[1] = 1;
+  d[2] = 2;
 
   for (let i = 3; i <= n; i++) {
-    result[i] = result[i-1] + result[i-2];
+    d[i] = d[i - 1] + d[i - 2];
   }
-  return result[n]
 
+  return d[n];
 };
+
+
