@@ -11,10 +11,7 @@ string 타입을 리턴해야 합니다.
 연속된 공백이 존재할 수 있습니다.
 빈 문자열을 입력받은 경우, 빈 문자열을 리턴해야 합니다.
 입출력 예시
-1
-2
-3
-4
+
 let output1 = letterCapitalize('hello world');
 console.log(output1); // "Hello World"
 let output2 = letterCapitalize('javascript  is sexy ');
