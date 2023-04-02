@@ -8,11 +8,7 @@ string 타입의 문자열
 출력
 string 타입을 리턴해야 합니다.
 입출력 예시
-1
-2
-3
-4
-5
+
 let output = firstReverse('codestates');
 console.log(output); // "setatsedoc"
 
