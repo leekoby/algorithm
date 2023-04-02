@@ -12,13 +12,8 @@ string 타입을 요소로 갖는 배열
 빈 배열을 입력받은 경우, 빈 객체를 리턴해야 합니다.
 입력으로 받는 배열을 수정하지 않아야 합니다.
 입출력 예시
-1
-2
-3
-4
-5
-6
-7```js
+
+```js
 let arr = ['Queen', 'Elizabeth', 'Of Hearts', 'Beyonce'];
 let output = transformFirstAndLast(arr);
 console.log(output); // --> { Queen : 'Beyonce' }
