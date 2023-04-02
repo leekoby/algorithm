@@ -9,11 +9,6 @@ number 타입의 연이율 (%)
 출력
 number 타입을 리턴해야 합니다.
 입출력 예시
-1
-2
-3
-4
-5
 let output = computeWhenDouble(7);
 console.log(output); // --> 11
 
